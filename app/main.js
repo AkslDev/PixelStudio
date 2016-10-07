@@ -13,7 +13,7 @@ var pixel_studio = {
 		];
 		this.palette.init_color(colors);
 
-		console.log('PixelStudio is initiated and ready');
+		console.log('PixelStudio is initiated and ready')
 	}
 };
 

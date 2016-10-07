@@ -42,6 +42,7 @@ body{
 #eraser{
 	margin-bottom: 40px;
 }
+
 .icon-paint-format:before {
   content: "\e90c";
 }
@@ -101,7 +102,7 @@ overflow:hidden;
 transition:width .05s linear;
 -webkit-transform:translateZ(0) scale(1,1);
 z-index:1000;
-padding-top: 75px;
+padding-top: 125px;
 }
 
 .main-menu a {
@@ -118,7 +119,9 @@ text-decoration:none;
 transition:all .1s linear;
   
 }
-
+.onclic{
+	transform: scale(2);
+}
 
 .no-touch .scrollable.hover {
 overflow-y:hidden;
@@ -139,6 +142,8 @@ z-index: 1000;
 
 .main-menu a:hover{
 color:#0099ff;
+transform: scale(1.2);
+transition: all 0.355s ease-in-out;
 }
 .area {
 float: left;
