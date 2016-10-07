@@ -1,5 +1,5 @@
 
-pixel_studio.palette = {
+pixel_studio.palette_color = {
 
 	colors: [],
 	color_selected: null,
@@ -14,7 +14,7 @@ pixel_studio.palette = {
 				console.log(color.id)
 	},
 	// Création de la représentation de la palette
-	init_color: function(colors){
+	init: function(colors){
 		this.colors = colors;
 
 		let 	$colors 	= $('#palette'),
