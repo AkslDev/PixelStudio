@@ -27,7 +27,7 @@ pixel_studio.palette_color = {
 				$('#palette').append(c);
 				color 	= this.colors[i];
 				color.id	= i;		
-}
+			}
 
 		//Couleur par defaut
 		this.select_color(this.colors[0]);	
