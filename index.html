@@ -4,7 +4,7 @@
 <!-- Début du Head -->
 <head>
 	<meta charset="UTF-8">
-	<title>PixelsStudio</title>
+	<title>PixelStudio</title>
 	<link rel="stylesheet" href="css/styles.css">
 	<link rel="stylesheet" href="css/materialize.css">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
@@ -22,18 +22,20 @@
 <div class="divlogo"><p class="logo">PixelStudio</p></div>
 	<!-- Début de la Navigation -->
 	<nav class="main-menu">
-		<!-- Crayon -->
-		<a href="#" id="pen">
-			<i class="fa fa-pencil fa-2x"></i>
-		</a>
-		<!-- Pot de Peinture -->
-		<a href="#" id="paint">
-			<i class="material-icons pot">format_paint</i>
-		</a>
-		<!-- Gomme -->
-		<a href="#" id="eraser">
-			<i class="fa fa-eraser fa-2x"></i>
-		</a>
+		<div id="palette-tool">
+			<!-- Crayon -->
+			<a href="#" id="pen">
+				<i class="fa fa-pencil fa-2x"></i>
+			</a>
+			<!-- Pot de Peinture -->
+			<a href="#" id="paint">
+				<i class="material-icons pot">format_paint</i>
+			</a>
+			<!-- Gomme -->
+			<a href="#" id="eraser">
+				<i class="fa fa-eraser fa-2x"></i>
+			</a>
+		</div>
 		<div id="palette">
 			<!-- Noir #161616-->
 			<a href="#" class=" palette" id="color"></a>	
@@ -43,6 +45,7 @@
 	<script src="app/jquery-1.11.3.min.js"></script>
 	<script src="app/main.js"></script>
 	<script src="app/palette-color.js"></script>
+	<script src="app/palette_tool.js"></script>
 	<script src="app/tool-class.js"></script>
 	<script src="app/color-class.js"></script>
 	<script>

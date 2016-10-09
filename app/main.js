@@ -12,7 +12,13 @@ var pixel_studio = {
 			new Color('Red', [214,32,32])
 		];
 		this.palette_color.init(colors);
-
+		// Outils de la Palette
+		let tools = [
+			new Tool ('Crayon', '#pen'),
+			new Tool ('Pot', '#paint'),
+			new Tool ('Gomme', '#eraser')
+		];
+		this.palette_tool.init(tools);
 		console.log('PixelStudio is initiated and ready')
 	}
 };
