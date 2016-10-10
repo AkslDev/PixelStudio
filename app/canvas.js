@@ -1,4 +1,3 @@
-
 pixel_studio.canvas = {
 
 	screen: {
@@ -14,6 +13,21 @@ pixel_studio.canvas = {
 
 	$canvas: null,
 	context: null,
+
+	/**
+	 * Dessine un pixel sur la zone de dessin
+	 * @param  {number} x     coordonnée horizontale du pixel
+	 * @param  {number} y     coordonnée verticale du pixel
+	 * @param  {Color} color  couleur du pixel : instance de Color
+	 */
+	draw: function(x, y, color){
+
+		let px = (x-1) * this.pixel_dimension,
+			py = (y-1) * this.pixel_dimension;
+
+		this.context.fillStyle = color.to_string(),
+		this.context.fillRect(px,py,this.pixel_dimension,this.pixel_dimension);
+	},
 
 	/**
 	 * Préparation de la zone de dessin
@@ -34,6 +48,7 @@ pixel_studio.canvas = {
 		this.nb_pixel.width = nb_pixel_width;
 
 		//  Creation du canvas
+		
 		var $c = $('<canvas></canvas>');
 		$c.attr({
 			'width': this.screen.width,
@@ -43,16 +58,39 @@ pixel_studio.canvas = {
 		this.$canvas.appendTo('#'+div_id);
 
 		this.context = $c[0].getContext("2d");
-		console.log('Canvas is ready');
 
-		this.draw(15,15,new Color('Noir', [22,22,22]));
-		},
-	draw(x, y, color){
-			pos_x = x* this.pixel_dimension;
-			pos_y = y* this.pixel_dimension;
 
-			this.context.fillStyle = color.to_string();
-			this.context.fillRect (pos_x,pos_y,this.pixel_dimension,this.pixel_dimension);
+		// Gestion des évènements
+		
+		this.$canvas.on('click', this.on_click);
 
+		console.log('canvas is ready');
+	},
+
+	/**
+	 * Converti les coordonnées écran de la souris en coordonnées canvas
+	 * @param  {MouseEvent} mouse_event Objet de l'évènement click
+	 * @return {Object}             Un objet x,y en coordonné canvas
+	 */
+	screen_to_canvas(mouse_event){
+
+		let offset = this.$canvas.offset();
+		return {
+			x: Math.floor((mouse_event.clientX - offset.left) / this.pixel_dimension)+1,
+			y: Math.floor((mouse_event.clientY - offset.top) / this.pixel_dimension)+1
+		}; 
+	},
+
+	on_click: function(mouse_event){
+
+		let ps 	 	 = pixel_studio,
+			position = ps.canvas.screen_to_canvas(mouse_event),
+			tool 	 = ps.palette_tool.get_selected(),
+			color 	 = ps.palette_color.get_selected();
+
+		// @todo
+		let c = (tool.name == 'Crayon') ? color  : ps.palette_color.bg_color;
+		
+		ps.canvas.draw(position.x, position.y, c);
 	}
 };

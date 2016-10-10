@@ -18,6 +18,7 @@ body{
 	padding: 0;
 	font-family:"LaneNarrow";
 	background-color:#e0e0e0;
+	cursor:crosshair;
 }
 .divlogo{
 	width: 150px;

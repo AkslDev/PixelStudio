@@ -3,10 +3,12 @@ pixel_studio.palette_tool = {
 
 	tools: [],
 	tool_selected: null,
-
+	get_selected: function(){
+		return this.selected;
+	},
 	select_tool:  function( tool ){
 
-		this.tool_selected = tool;
+		this.selected = tool;
 		$('#palette-tool a').removeClass('tool-selected')
 						.eq(tool.id)
 						.addClass('tool-selected');
@@ -27,7 +29,8 @@ pixel_studio.palette_tool = {
 				arg[i].id	= i;
 
 			var a = arg[i].iconfa();
-				$one.children().addClass(a);
+				t.children().removeClass();
+				t.children().addClass(a);
 				$('#palette-tool').append(t);
 				t.attr('title', arg[i].name);
 				arg[i].id	= i;

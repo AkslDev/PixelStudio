@@ -16,14 +16,13 @@ var pixel_studio = {
 		// Outils de la Palette
 		let tools = [
 			new Tool ('Crayon', 'fa-pencil'),
-			new Tool ('Pipette', 'fa-eyedropper'),
 			new Tool ('Gomme', 'fa-eraser')
 		];
 		this.palette_tool.init(tools);
 
-		console.log('PixelStudio is initiated and ready')
+		console.log('PixelStudio is initiated and ready');
 		// Canvas
-		this.canvas.init('zone_dessin', window.innerWidth,window.innerHeight - 10, 100);
+		this.canvas.init('zone_dessin', window.innerWidth, window.innerHeight - 10, 300);
 	}
 		
 };
