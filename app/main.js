@@ -22,7 +22,7 @@ var pixel_studio = {
 
 		console.log('PixelStudio is initiated and ready');
 		// Canvas
-		this.canvas.init('zone_dessin', window.innerWidth, window.innerHeight - 10, 300);
+		this.canvas.init('zone_dessin', window.innerWidth, window.innerHeight - 10, 100);
 	}
 		
 };
