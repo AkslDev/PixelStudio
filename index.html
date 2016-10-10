@@ -11,12 +11,12 @@
       rel="stylesheet">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	<link rel="stylesheet" href="https://i.icomoon.io/public/temp/11b6b33c94/UntitledProject/style.css">
 </head>
 <!-- Fin du Head -->
 
 <!-- Début du Body -->
 <body>
+	<div id="canvas"></div>
 	<!-- Barre latérale d'outils -->
 	<div class="area"></div>
 <div class="divlogo"><p class="logo">PixelStudio</p></div>
@@ -30,7 +30,7 @@
 		</div>
 		<div id="palette">
 			<!-- Noir #161616-->
-			<a href="#" class=" palette" id="color"></a>	
+			<a href="#" class="palette" id="color"></a>	
 		</div>
 	</nav>
 	<!-- Fin de la Navigation -->
@@ -40,6 +40,7 @@
 	<script src="app/palette_tool.js"></script>
 	<script src="app/tool-class.js"></script>
 	<script src="app/color-class.js"></script>
+	<script src="app/canvas.js"></script>
 	<script>
 		$(function(){
 			pixel_studio.init();

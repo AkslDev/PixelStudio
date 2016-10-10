@@ -11,7 +11,6 @@ pixel_studio.palette_color = {
 		$('#palette a').removeClass('selected')
 				.eq(color.id)
 				.addClass('selected')
-				console.log(color.id)
 	},
 	// Création de la représentation de la palette
 	init: function(colors){

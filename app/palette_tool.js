@@ -16,14 +16,12 @@ pixel_studio.palette_tool = {
 		this.tools = arg;
 
 		let 	$tools 		= $('#palette-tool');
-			$one 		= $tools.children('a').remove();
-			console.log($one)
+			$one 		= $tools.children('a').detach();
 
-		for (var i = 0; i <= arg.length -1; i++) {
+		for (var i = 0; i < arg.length ; i++) {
 			let  t = $one.clone();
-				$one.children().removeClass();	
+				 $one.children().removeClass();	
 			var a = arg[i].iconfa();
-			console.log(a,i)
 				$one.children().addClass(a);
 				$('#palette-tool').append(t);
 				t.attr('title', arg[i].name);

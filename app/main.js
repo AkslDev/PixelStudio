@@ -18,7 +18,6 @@ var pixel_studio = {
 			new Tool ('Crayon', 'pencil'),
 			new Tool ('Pipette', 'eyedropper'),
 			new Tool ('Gomme', 'eraser'),
-			new Tool ('Crayon', 'pencil'),
 
 		];
 		this.palette_tool.init(tools);
