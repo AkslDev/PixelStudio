@@ -1,16 +1,17 @@
 pixel_studio.palette_tool = {
 
+
 	tools: [],
-	tools_selected: null,
-	select_tools: function(tool){
+	tool_selected: null,
 
-		this.tools_selected = tool ;
+	select_tool:  function( tool ){
 
+		this.tool_selected = tool;
 		$('#palette-tool a').removeClass('tool-selected')
-				.eq(tool.id)
-				.addClass('tool-selected')
-
+						.eq(tool.id)
+						.addClass('tool-selected');
 	},
+
 	init : function(arg){
 
 		this.tools = arg;
@@ -19,8 +20,12 @@ pixel_studio.palette_tool = {
 			$one 		= $tools.children('a').detach();
 
 		for (var i = 0; i < arg.length ; i++) {
-			let  t = $one.clone();
-				 $one.children().removeClass();	
+
+			let  t 		= $one.clone();
+			     tool 	= this.tools[i];
+
+				arg[i].id	= i;
+
 			var a = arg[i].iconfa();
 				$one.children().addClass(a);
 				$('#palette-tool').append(t);
@@ -29,14 +34,14 @@ pixel_studio.palette_tool = {
 		}		
 		
 		//Outils par defaut
-		this.select_tools(this.tools[0]);	
+		this.select_tool(this.tools[0]);	
 
 		// Gestion des clics
 		var self 	= this;
 		$('#palette-tool').on('click','a',function(){
 			let index = $('#palette-tool a').index(this);
 			console.log(self.tools[index]);
-			self.select_tools(self.tools[index]);
+			self.select_tool(self.tools[index]);
 
 		});	
 

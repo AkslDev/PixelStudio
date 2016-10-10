@@ -77,6 +77,12 @@ body{
 .palette:hover{
 	    transform: scale(1.2);
 }	
+#zone_dessin canvas{
+	position: absolute;
+	right:9px;
+	top: 7px;
+	background-color: #D3D3D3;
+}
 /*Stylisation de la side bar*/
 .fa-2x {
 font-size: 2em;

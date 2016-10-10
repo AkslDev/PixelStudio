@@ -11,7 +11,7 @@ class Tool {
 	}
 
 	iconfa(){
-		let  	icon_fa   = 'fa fa-';
+		let  	icon_fa   = 'fa ';
 			icon_fa += this.icon;
 			icon_fa += ' fa-2x';
 		return(icon_fa);

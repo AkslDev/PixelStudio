@@ -16,7 +16,7 @@
 
 <!-- Début du Body -->
 <body>
-	<div id="canvas"></div>
+
 	<!-- Barre latérale d'outils -->
 	<div class="area"></div>
 <div class="divlogo"><p class="logo">PixelStudio</p></div>
@@ -33,7 +33,9 @@
 			<a href="#" class="palette" id="color"></a>	
 		</div>
 	</nav>
+	<div id="zone_dessin"></div>	
 	<!-- Fin de la Navigation -->
+	<!-- Fichiers Script Début -->
 	<script src="app/jquery-1.11.3.min.js"></script>
 	<script src="app/main.js"></script>
 	<script src="app/palette-color.js"></script>
@@ -41,6 +43,7 @@
 	<script src="app/tool-class.js"></script>
 	<script src="app/color-class.js"></script>
 	<script src="app/canvas.js"></script>
+	<!-- Fichier Script Fin -->
 	<script>
 		$(function(){
 			pixel_studio.init();

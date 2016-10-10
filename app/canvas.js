@@ -1,41 +1,58 @@
+
 pixel_studio.canvas = {
 
 	screen: {
-		width: 		0,
-		height: 		0
+		width: 0,
+		height: 0
 	},
-	pixel_dimension: 	0,
+	nb_pixel: {
+		width: 0,
+		height:0
+	},
 
-	nb_pixel_width: 	0,
+	pixel_dimension: 0,
+
+	$canvas: null,
+	context: null,
+
 	/**
 	 * Préparation de la zone de dessin
-	 * @param  {string}  div_id  			Nom de la div ou le canvas sera placé
-	 * @param  {number} width  			Largeur exact en Pixel Ecran
-	 * @param  {number} height  			Hauteur max en Pixel Ecran
-	 * @param  {number} nb_pixel_width  	Nb de pixel en Largeur
+	 * @param  {string} div_id         Nom de la div dans lequel sera placé le  canvas
+	 * @param  {number} width          Largeur exact du canvas en pixel ecran
+	 * @param  {number} height         Hauteur maximum du camvas en pixel ecran
+	 * @param  {number} nb_pixel_width Nombre de pixel en largeur
 	 */
-	init : function(div_id, width, height,nb_pixel_width){
+	init: function(div_id, width, height, nb_pixel_width){
+
+		//  Calcul du pixel_dimension
 		
-		this.div_id 		= 	id
-		this.width 		= 	innerWidth();
-		this.height 		= 	innerHeight();
-		this.nb_pixel_width 	= 	10;
+		this.pixel_dimension = parseInt(width / nb_pixel_width);
+		this.nb_pixel.height = parseInt(height / this.pixel_dimension);
 
+		this.screen.width 	= this.pixel_dimension * nb_pixel_width;
+		this.screen.height 	= this.pixel_dimension * this.nb_pixel.height;
+		this.nb_pixel.width = nb_pixel_width;
 
+		//  Creation du canvas
+		var $c = $('<canvas></canvas>');
+		$c.attr({
+			'width': this.screen.width,
+			'height': this.screen.height,
+		});
+		this.$canvas = $c;
+		this.$canvas.appendTo('#'+div_id);
 
-		window.onload = function(){
-		    	var 	canvas = document.getElementById('canvas');
-		        		if(!canvas){
-		            		alert("Impossible de récupérer le canvas");
-		            		return;
-		        		}
+		this.context = $c[0].getContext("2d");
+		console.log('Canvas is ready');
 
-		    	var 	context = canvas.getContext('2d');
-		       		if(!context){
-		            		alert("Impossible de récupérer le context du canvas");
-		            		return;
-		        		}
-		}
+		this.draw(15,15,new Color('Noir', [22,22,22]));
+		},
+	draw(x, y, color){
+			pos_x = x* this.pixel_dimension;
+			pos_y = y* this.pixel_dimension;
+
+			this.context.fillStyle = color.to_string();
+			this.context.fillRect (pos_x,pos_y,this.pixel_dimension,this.pixel_dimension);
+
 	}
-
-}
+};
