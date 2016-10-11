@@ -15,8 +15,8 @@ var pixel_studio = {
 
 		// Outils de la Palette
 		let tools = [
-			new Tool ('Crayon', 'fa-pencil'),
-			new Tool ('Gomme', 'fa-eraser')
+			new Pencil (this.canvas),
+			new Eraser (this.canvas)
 		];
 		this.palette_tool.init(tools);
 

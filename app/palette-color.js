@@ -19,8 +19,6 @@ pixel_studio.palette_color = {
 	init: function(colors){
 		this.colors = colors;
 
-		this.bg_color	= new Color ('gris' , [211,211,211]);
-
 		let 	$colors 	= $('#palette'),
 			$one 		= $colors.children('a').detach();
 

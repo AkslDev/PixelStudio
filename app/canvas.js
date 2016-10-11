@@ -25,10 +25,9 @@ pixel_studio.canvas = {
 		let px = (x-1) * this.pixel_dimension,
 			py = (y-1) * this.pixel_dimension;
 
-		this.context.fillStyle = color.to_string(),
+		this.context.fillStyle = color.to_string();
 		this.context.fillRect(px,py,this.pixel_dimension,this.pixel_dimension);
 	},
-
 	/**
 	 * Préparation de la zone de dessin
 	 * @param  {string} div_id         Nom de la div dans lequel sera placé le  canvas
@@ -62,9 +61,14 @@ pixel_studio.canvas = {
 
 		// Gestion des évènements
 		
-		this.$canvas.on('click', this.on_click);
-
+		this.$canvas.on('mousemove mousedown mouseup', this.onmouse_event);
 		console.log('canvas is ready');
+	},
+	onmouse_event: function(mouse_event){
+
+		let 	tool = pixel_studio.palette_tool.get_selected();
+			type = 'on'+mouse_event.type;
+		if(tool[type])	tool[type](mouse_event);
 	},
 
 	/**
@@ -81,16 +85,4 @@ pixel_studio.canvas = {
 		}; 
 	},
 
-	on_click: function(mouse_event){
-
-		let ps 	 	 = pixel_studio,
-			position = ps.canvas.screen_to_canvas(mouse_event),
-			tool 	 = ps.palette_tool.get_selected(),
-			color 	 = ps.palette_color.get_selected();
-
-		// @todo
-		let c = (tool.name == 'Crayon') ? color  : ps.palette_color.bg_color;
-		
-		ps.canvas.draw(position.x, position.y, c);
-	}
 };
